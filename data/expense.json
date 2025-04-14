@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Lunch",
+    "amount": 50,
+    "category": "Travel",
+    "date": "2025-04-13"
+  },
+  {
+    "id": "2",
+    "title": "Cab",
+    "amount": 100,
+    "category": "Travel",
+    "date": "2025-04-14"
+  },
+  {
+    "id": "3",
+    "title": "dd",
+    "amount": 100,
+    "category": "Food",
+    "date": "2025-04-25"
+  }
+]

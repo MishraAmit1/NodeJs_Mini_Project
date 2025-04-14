@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-blue-400 mb-8 text-center">Your Tasks</h2>
+        <form action="/task/create-task" method="POST"
+            class="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg mb-12">
+            <div class="mb-4">
+                <label for="title" class="block text-gray-300 font-medium mb-2">Title</label>
+                <input type="text" name="title" id="title" placeholder="Enter the Title" required
+                    class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <div class="mb-4">
+                <label for="description" class="block text-gray-300 font-medium mb-2">Description</label>
+                <textarea name="description" id="description" placeholder="Enter the description" required
+                    class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                Add Task
+            </button>
+        </form>
+        <% if (files.length> 0) { %>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <% files.forEach(data=> { %>
+                    <div
+                        class="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-100 truncate">
+                                <%= data %>
+                            </h3>
+                            <div class="flex justify-between mt-4">
+                                <a href="/task/file/<%= data %>" class="text-blue-400 hover:text-blue-300">Read More</a>
+                                <a href="/task/edit-file/<%= data %>" class="text-yellow-400 hover:text-yellow-300">Edit
+                                    Filename</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+            <% } else { %>
+                <p class="text-gray-400 text-lg text-center">No tasks listed yet.</p>
+                <% } %>
+    </div>
+</body>
+
+</html>
